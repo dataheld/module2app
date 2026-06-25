@@ -3,8 +3,6 @@
 ## Overview
 
 crow is a loose collection of helpers for your shiny development.
-It is *not* a full-blown framework like [golem](https://thinkr-open.github.io/golem/),
-but a lightweight time- and line-saver.
 
 It can help with:
 
@@ -12,6 +10,27 @@ It can help with:
 - 🧪 testing
 - 📖 documentation
 - ... and more
+
+crow is **opinionated on quality** ...
+
+- Shiny apps and their modules should be proper, exported *functions in an R package*.
+- *No code generation*.
+  If you feel like you need to programmatically create code, you're doing it wrong.
+  (I'm not talking LLMs here, but bloated boilerplates).
+
+... but also **flexible in implementation** ...
+
+- *No framework*.
+  You use crow, crow doesn't use you.
+  (It's not like [])
+
+... and **lightweight** ...
+
+- *~~`Imports: crow`~~*.
+  crow is a time- and line-saver during development, but doesn't want to be your dependency.
+  Shiny is enough.
+
+In all of these ways, crow is also a (tiny) opposite to [rhino](https://appsilon.github.io/rhino/), [golem](https://thinkr-open.github.io/golem/) or [leprechaun](https://leprechaun.opifex.org/).
 
 
 ## Installation
@@ -21,11 +40,9 @@ It can help with:
 pak::pak("dataheld/crow")
 ```
 
-Notice that crow is a *development*-time dependency;
-your shiny app should not need it to work,
-and it thus *might not need it in your `DESCRIPTION`*.
+crow is a *development*-time dependency; it should not be in your `DESCRIPTION`s `Imports:`.
 
-If you use it for tests, you can include it as a `Suggests`.
+If you want to use it in your tests, you will have to include it in `Suggests:`.
 
 If you don't need it for tests,
 but want to otherwise record that you used it for development,
